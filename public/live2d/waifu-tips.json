@@ -1,0 +1,136 @@
+{
+  "mouseover": [
+    {
+      "selector": "#login-btn",
+      "text": "hahaha"
+    },
+    {
+      "selector": "#live2d",
+      "text": [
+        "What are you doing, darling? Hands off, please~~",
+        "Oh my! Mouse...mouse in the wrong place!",
+        "What's your intention, love?",
+        "Meow meow meow?",
+        "Scaredy-cat here(ノ≧∇≦)ノ",
+        "Inappropriate! Help!",
+        "If this continues, I might have to resort to my claws!",
+        "I'm getting a bit cross, you know.",
+        "No touchy-feely, please!",
+        "Really... you're quite shameless!",
+        "Pervert!"
+      ]
+    }
+  ],
+  "click": [
+    {
+      "selector": "#live2d",
+      "text": [
+        "It was... it was an accident, right?",
+        "What's a 'lolicon', dear?",
+        "Have you seen my little teddy bear?",
+        "If you keep touching, I'll have to call the constable! ⌇●﹏●⌇",
+        "Is this 999? There's a strange person here who won't stop touching me (ó﹏ò｡)",
+        "Stop touching me, or I'll tell my lady friend to give you a thrashing!",
+        "Why are you touching me! Be careful, I might bite!",
+        "Don't touch me, there's nothing to feel here!"
+      ]
+    }
+  ],
+  "seasons": [
+    {
+      "date": "01/01",
+      "text": "<span>New Year's Day</span> is here, a new year has begun, this year is {year}~"
+    },
+    {
+      "date": "02/14",
+      "text": "It's <span>Valentine's Day</span> again, have you found a partner in {year}~"
+    },
+    {
+      "date": "03/08",
+      "text": "Today is <span>International Women's Day</span>!"
+    },
+    {
+      "date": "03/12",
+      "text": "Today is <span>Tree Planting Day</span>, we must protect the environment!"
+    },
+    {
+      "date": "04/01",
+      "text": "Let me tell you a secret~<span>Today is April Fool's Day, don't be fooled~</span>"
+    },
+    {
+      "date": "05/01",
+      "text": "Today is <span>Labour Day</span>, have you planned where to go for the holiday~"
+    },
+    {
+      "date": "06/01",
+      "text": "It's <span>Children's Day</span>, it would be nice if we never grew up…"
+    },
+    {
+      "date": "09/10",
+      "text": "<span>Teacher's Day</span>, remember to greet your teachers at school~"
+    },
+    {
+      "date": "10/01",
+      "text": "<span>National Day</span> is here, let's celebrate for our motherland!"
+    },
+    {
+      "date": "11/05-11/12",
+      "text": "Who did you spend this year's <span>Double Eleven</span> with~"
+    },
+    {
+      "date": "12/20-12/31",
+      "text": "These are the days of <span>Christmas</span>, I bet you're going shopping again~"
+    }
+  ],
+  "time": [
+    {
+      "hour": "6-7",
+      "text": "Good morning! The early bird catches the worm, a beautiful day begins~"
+    },
+    {
+      "hour": "8-11",
+      "text": "Good morning! How's work going, don't sit for too long, get up and move around!"
+    },
+    {
+      "hour": "12-13",
+      "text": "It's noon, you've worked all morning, now it's lunch time!"
+    },
+    {
+      "hour": "14-17",
+      "text": "It's easy to get sleepy in the afternoon, have you met your exercise goals today?"
+    },
+    {
+      "hour": "18-19",
+      "text": "It's evening! The sunset outside the window is very beautiful, the most beautiful is the sunset~"
+    },
+    {
+      "hour": "20-21",
+      "text": "Good evening, how was your day?"
+    },
+    {
+      "hour": "22-23",
+      "text": [
+        "It's already so late, go to bed early, good night~",
+        "Take care of your eyes in the late night!"
+      ]
+    },
+    {
+      "hour": "0-5",
+      "text": "Are you a night owl? It's so late and you're still not sleeping, can you get up tomorrow?"
+    }
+  ],
+
+  "message": {
+    "default": [
+      "Long time no see, how swiftly the days fly by...",
+      "You big meanie! How long has it been since you've paid me any attention, whimper whimper~",
+      "Hi~ Come and amuse me!",
+      "I'm going to pound you with my little fists!",
+      "Remember to add our little home to your favorites!",
+      "Wow, you've finally returned~"
+    ],
+    "console": "",
+    "copy": "",
+    "visibilitychange": "Wow, you've finally returned~"
+  }
+}
