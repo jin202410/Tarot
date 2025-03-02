@@ -15,24 +15,26 @@ import { createContainer } from "../hooks/useContainer";
 
 const DEFAULT_GAS = "30000000000000";
 const DEFAULT_DEPOSIT = "0";
-const NEAR_CONTRACT_NAME = process.env.NEAR_CONTRACT_NAME;
-const NEAR_NETWORK_ID = process.env.NEAR_NETWORK_ID;
+const NEAR_CONTRACT_ID = process.env.NEXT_PUBLIC_NEAR_CONTRACT_NAME;
 
-const nearNetwork =
-  NEAR_NETWORK_ID === "mainnet"
-    ? {
-        networkId: "mainnet",
-        keyStore: new keyStores.BrowserLocalStorageKeyStore(),
-        nodeUrl: "https://near.lava.build",
-        walletUrl: "https://app.mynearwallet.com",
-        helperUrl: "https://helper.near.org",
-      }
-    : {
-        networkId: "testnet",
-        nodeUrl: "https://rpc.testnet.near.org",
-        walletUrl: "https://testnet.mynearwallet.com",
-        helperUrl: "https://helper.testnet.near.org",
-      };
+function getNearNetwork() {
+  const nearNetwork =
+    process.env.NEXT_PUBLIC_NEAR_NETWORK_ID === "mainnet"
+      ? {
+          networkId: "mainnet",
+          keyStore: new keyStores.BrowserLocalStorageKeyStore(),
+          nodeUrl: "https://near.lava.build",
+          walletUrl: "https://app.mynearwallet.com",
+          helperUrl: "https://helper.near.org",
+        }
+      : {
+          networkId: "testnet",
+          nodeUrl: "https://rpc.testnet.near.org",
+          walletUrl: "https://testnet.mynearwallet.com",
+          helperUrl: "https://helper.testnet.near.org",
+        };
+    return nearNetwork;
+}
 
 class WalletError extends Error {
   constructor(message) {
@@ -57,7 +59,7 @@ function useWalletContainer() {
 
   const getNear = useCallback(() => {
     if (nearRef.current) return nearRef.current;
-    return new Near(nearNetwork);
+    return new Near(getNearNetwork());
   }, []);
 
   const getNearAccount = useCallback(async () => {
@@ -70,7 +72,7 @@ function useWalletContainer() {
   const setupWallet = useCallback(async () => {
     try {
       const selector = await setupWalletSelector({
-        network: nearNetwork,
+        network: getNearNetwork(),
         // debug: true,
         modules: [
           setupMyNearWallet(),
@@ -81,9 +83,9 @@ function useWalletContainer() {
           setupBitteWallet(),
         ],
       });
-
+      console.log("Contract", NEAR_CONTRACT_ID);
       const modal = setupModal(selector, {
-        contractId: NEAR_CONTRACT_NAME,
+        contractId: NEAR_CONTRACT_ID,
       });
       const state = selector.store.getState();
       
@@ -176,6 +178,7 @@ function useWalletContainer() {
   }, [setupWallet])
 
   return {
+    NEAR_CONTRACT_ID,
     activeAccountId,
     nearWalletConnected,
     signInNearWallet,

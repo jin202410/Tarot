@@ -27,6 +27,7 @@ import {
 
 export default function TarotApp() {
   const {
+    NEAR_CONTRACT_ID,
     activeAccountId,
     nearWalletConnected,
     signInNearWallet,
@@ -48,7 +49,7 @@ export default function TarotApp() {
     setIsLoadingReadings(true);
     try {
       const resp = await viewFunction({
-        contractId: process.env.NEXT_PUBLIC_CONTRACT_NAME,
+        contractId: NEAR_CONTRACT_ID,
         method: "get_user_readings",
         args: {
           user_account: activeAccountId,
@@ -89,7 +90,7 @@ export default function TarotApp() {
 
       // Save reading to contract
       await callFunction({
-        contractId: process.env.NEXT_PUBLIC_CONTRACT_NAME,
+        contractId: NEAR_CONTRACT_ID,
         method: "add_reading",
         args: {
           user_account: activeAccountId,

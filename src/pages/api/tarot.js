@@ -8,7 +8,7 @@ const httpsAgent = new HttpsProxyAgent(proxyUrl);
 
 // Initialize OpenAI client with proxy configuration
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.AI_API_KEY,
   httpAgent: httpsAgent,
   fetch: fetch,
 });
@@ -112,8 +112,8 @@ export default async function handler(req, res) {
     }
 
     // Print environment variables (avoid printing full API key in production)
-    console.log("API Key exists:", !!process.env.OPENAI_API_KEY);
-    console.log("API Key prefix:", process.env.OPENAI_API_KEY?.substring(0, 7));
+    console.log("API Key exists:", !!process.env.AI_API_KEY);
+    console.log("API Key prefix:", process.env.AI_API_KEY?.substring(0, 7));
 
     // Build prompt
     const prompt = `As a cute demon-like anime fortune teller (think of a playful, mischievous but caring character), provide a charming and insightful tarot reading for user ${accountId} who asks: ${question}
