@@ -72,6 +72,7 @@ function useWalletContainer() {
   const setupWallet = useCallback(async () => {
     try {
       const selector = await setupWalletSelector({
+        languageCode: "en",
         network: getNearNetwork(),
         // debug: true,
         modules: [

@@ -24,6 +24,7 @@ import {
   DialogDescription,
   DialogHeader,
 } from "@/components/ui/dialog";
+import toast from "react-hot-toast";
 
 export default function TarotApp() {
   const {
@@ -61,7 +62,7 @@ export default function TarotApp() {
     } finally {
       setIsLoadingReadings(false);
     }
-  }, [activeAccountId, viewFunction]);
+  }, [activeAccountId, viewFunction, NEAR_CONTRACT_ID]);
   const getReadingsRef = useRef(getReadings);
   getReadingsRef.current = getReadings;
 
@@ -110,10 +111,10 @@ export default function TarotApp() {
       setIsReadingsPanelOpen(false);
       // Clear input after successful submission
       setQuestion("");
-      alert("Your tarot reading has been saved!");
+      toast.success("Your tarot reading has been saved!");
     } catch (error) {
       console.error("Error during tarot reading:", error);
-      alert("Failed to get your tarot reading. Please try again.");
+      toast.error("Failed to get your tarot reading. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -195,7 +196,7 @@ export default function TarotApp() {
       </div>
 
       {activeAccountId && (
-        <div className="absolute left-1/2 top-1/3 -translate-x-1/2 z-50 w-[400px] flex flex-col gap-4 p-4 rounded-lg shadow-lg bg-slate-800/90">
+        <div className="absolute left-1/2 top-[20%] -translate-x-1/2 z-50 w-[400px] flex flex-col gap-4 p-4 rounded-lg shadow-lg bg-slate-800/90">
           <textarea
             className="w-full h-32 p-4 text-lg text-white rounded-lg resize-none bg-slate-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
             placeholder="Ask your question..."
