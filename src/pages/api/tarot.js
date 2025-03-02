@@ -141,7 +141,7 @@ Example format:
 
 31: Ara ara~ The Ten of Wands brings such intense energy! You're carrying quite a lot on your shoulders, aren't you? But don't worry, I can see great rewards ahead if you manage your energy wisely. Here's a secret tip from your favorite fortune teller: delegate some of those responsibilities, and save some magic for yourself! ♪`;
 
-    console.log("Attempting API call with proxy:", proxyUrl);
+    // console.log("Attempting API call with proxy:", proxyUrl);
 
     try {
       // Call OpenAI API
