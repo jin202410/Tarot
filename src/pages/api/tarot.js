@@ -1,15 +1,15 @@
 import OpenAI from "openai";
-import { HttpsProxyAgent } from "https-proxy-agent";
+// import { HttpsProxyAgent } from "https-proxy-agent";
 import fetch from "node-fetch";
 
-// Configure proxy
-const proxyUrl = "http://127.0.0.1:8001"; // Modify according to your proxy settings
-const httpsAgent = new HttpsProxyAgent(proxyUrl);
+// // Configure proxy
+// const proxyUrl = "http://127.0.0.1:8001"; // Modify according to your proxy settings
+// const httpsAgent = new HttpsProxyAgent(proxyUrl);
 
 // Initialize OpenAI client with proxy configuration
 const openai = new OpenAI({
   apiKey: process.env.AI_API_KEY,
-  httpAgent: httpsAgent,
+  // httpAgent: httpsAgent,
   fetch: fetch,
 });
 
