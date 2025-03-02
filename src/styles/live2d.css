@@ -269,3 +269,18 @@
 		transform: translate(0, 0) rotate(0);
 	}
 }
+
+
+@media screen and (max-width: 1000px) {
+	#waifu {
+		transform: scale(0.8) !important;
+		transform-origin: center bottom;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	#waifu {
+		transform: scale(0.6) !important;
+		transform-origin: center bottom;
+	}
+}

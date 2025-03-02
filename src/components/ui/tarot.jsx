@@ -15,6 +15,7 @@ import {
   ChevronRight,
   Loader2,
   Sparkles,
+  XCircle,
 } from "lucide-react";
 import dayjs from "dayjs";
 import {
@@ -153,7 +154,7 @@ export default function TarotApp() {
       )}
       <div className="absolute top-0 right-0 z-50">
         {!nearWalletConnected ? (
-          <div className="flex flex-col items-center w-screen h-screen space-y-4 pt-[20%]">
+          <div className="flex flex-col items-center w-screen h-screen space-y-4 px-4 pt-[20%]">
             <h1 className="text-3xl font-bold text-white">
               Welcome to Tarot App
             </h1>
@@ -196,7 +197,7 @@ export default function TarotApp() {
       </div>
 
       {activeAccountId && (
-        <div className="absolute left-1/2 top-[20%] -translate-x-1/2 z-50 w-[400px] flex flex-col gap-4 p-4 rounded-lg shadow-lg bg-slate-800/90">
+        <div className="absolute left-1/2 top-[20%] -translate-x-1/2 z-50 max-w-full w-[400px] flex flex-col gap-4 p-4 rounded-lg shadow-lg bg-slate-800/90">
           <textarea
             className="w-full h-32 p-4 text-lg text-white rounded-lg resize-none bg-slate-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
             placeholder="Ask your question..."
@@ -218,14 +219,18 @@ export default function TarotApp() {
 
       {activeAccountId && (
         <div
-          className={`fixed top-0 left-0 h-screen transition-transform duration-300 ease-in-out ${
+          className={`fixed z-[51] top-0 left-0 h-screen transition-transform duration-300 ease-in-out ${
             isReadingsPanelOpen ? "translate-x-0" : "-translate-x-96"
           }`}
         >
           <div className="relative h-full">
             <div className="h-full w-96 bg-slate-900/80 backdrop-blur-sm">
-              <h2 className="sticky top-0 z-10 p-6 pb-4 text-2xl font-bold text-white bg-slate-900/80 backdrop-blur-sm">
+              <h2 className="sticky top-0 z-10 flex items-center p-6 pb-4 text-2xl font-bold text-white bg-slate-900/80 backdrop-blur-sm">
                 Tarot Journal
+                <XCircle className="ml-6 cursor-pointer" onClick={(ev) => {
+                  ev.stopPropagation()
+                  setIsReadingsPanelOpen(false)
+                }} />
               </h2>
 
               <div
@@ -265,9 +270,10 @@ export default function TarotApp() {
                       </p>
                     </div>
                     <Button
-                      onClick={() =>
-                        document.querySelector("textarea")?.focus()
-                      }
+                      onClick={() => {
+                        document.querySelector("textarea")?.focus();
+                        setIsReadingsPanelOpen(false);
+                      }}
                       variant="ghost"
                       className="mt-4 text-purple-400 hover:text-purple-300 hover:bg-purple-400/10"
                     >
@@ -332,7 +338,7 @@ export default function TarotApp() {
       )}
 
       <Dialog open={!!selectedCard} onOpenChange={() => setSelectedCard(null)}>
-        <DialogContent className="text-white bg-slate-900/95 border-slate-700">
+        <DialogContent className="text-white bg-slate-900/95 border-slate-700 z-[52]">
           <DialogHeader>
             <div className="flex flex-col items-center gap-2 pb-2">
               <div className="flex items-center gap-2">
@@ -387,7 +393,7 @@ export default function TarotApp() {
         open={!!currentQuestionResult}
         onOpenChange={() => setCurrentQuestionResult(null)}
       >
-        <DialogContent className="text-white bg-slate-900/95 border-slate-700">
+        <DialogContent className="text-white bg-slate-900/95 border-slate-700 z-[52]">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold tracking-tight">
               Your Tarot Reading
