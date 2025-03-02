@@ -16,11 +16,13 @@ import {
   Loader2,
   Sparkles,
   XCircle,
+  XIcon,
 } from "lucide-react";
 import dayjs from "dayjs";
 import {
   Dialog,
   DialogContent,
+  DialogClose,
   DialogTitle,
   DialogDescription,
   DialogHeader,
@@ -45,7 +47,7 @@ export default function TarotApp() {
   const [currentQuestionResult, setCurrentQuestionResult] = useState(null);
   const [isReadingsPanelOpen, setIsReadingsPanelOpen] = useState(false);
   const [isLoadingReadings, setIsLoadingReadings] = useState(true);
-
+  console.log("readings", readings);
   const getReadings = useCallback(async () => {
     if (!activeAccountId) return;
     setIsLoadingReadings(true);
@@ -227,10 +229,13 @@ export default function TarotApp() {
             <div className="h-full w-96 bg-slate-900/80 backdrop-blur-sm">
               <h2 className="sticky top-0 z-10 flex items-center p-6 pb-4 text-2xl font-bold text-white bg-slate-900/80 backdrop-blur-sm">
                 Tarot Journal
-                <XCircle className="ml-6 cursor-pointer" onClick={(ev) => {
-                  ev.stopPropagation()
-                  setIsReadingsPanelOpen(false)
-                }} />
+                <XCircle
+                  className="ml-6 cursor-pointer"
+                  onClick={(ev) => {
+                    ev.stopPropagation();
+                    setIsReadingsPanelOpen(false);
+                  }}
+                />
               </h2>
 
               <div
@@ -340,6 +345,9 @@ export default function TarotApp() {
       <Dialog open={!!selectedCard} onOpenChange={() => setSelectedCard(null)}>
         <DialogContent className="text-white bg-slate-900/95 border-slate-700 z-[52]">
           <DialogHeader>
+            <DialogClose className="absolute top-4 right-4">
+              <XIcon className="w-8 h-8 text-gray-300 cursor-pointer" />
+            </DialogClose>
             <div className="flex flex-col items-center gap-2 pb-2">
               <div className="flex items-center gap-2">
                 {selectedCard?.isReversed ? (
@@ -395,6 +403,9 @@ export default function TarotApp() {
       >
         <DialogContent className="text-white bg-slate-900/95 border-slate-700 z-[52]">
           <DialogHeader>
+            <DialogClose className="absolute top-8 right-6">
+              <XIcon className="w-8 h-8 text-gray-300 cursor-pointer" />
+            </DialogClose>
             <DialogTitle className="text-2xl font-bold tracking-tight">
               Your Tarot Reading
             </DialogTitle>
