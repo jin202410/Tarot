@@ -47,7 +47,7 @@ export default function TarotApp() {
   const [currentQuestionResult, setCurrentQuestionResult] = useState(null);
   const [isReadingsPanelOpen, setIsReadingsPanelOpen] = useState(false);
   const [isLoadingReadings, setIsLoadingReadings] = useState(true);
-  console.log("readings", readings);
+
   const getReadings = useCallback(async () => {
     if (!activeAccountId) return;
     setIsLoadingReadings(true);
@@ -375,7 +375,7 @@ export default function TarotApp() {
               </div>
             </div>
             <div className="text-gray-300">
-              <div className="mt-4 space-y-4">
+              <div className="mt-4 space-y-4 max-h-[calc(100vh-200px)] overflow-y-auto">
                 <div className="relative aspect-[2/3] w-48 mx-auto overflow-hidden rounded-lg">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                   {selectedCard && (
